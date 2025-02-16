@@ -2,10 +2,10 @@ import azure.functions as func
 import json
 import logging
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from azure.cosmos import CosmosClient
 
-load_dotenv()
+# load_dotenv()
 
 # Create Azure Function App instance
 app = func.FunctionApp()
@@ -13,10 +13,10 @@ app = func.FunctionApp()
 
 # Cosmos DB connection details (Replace with your values)
 
-COSMOS_DB_URI = os.getenv("COSMOS_DB_URI")
-COSMOS_DB_KEY = os.getenv("COSMOS_DB_KEY")
-DATABASE_NAME = os.getenv("DATABASE_NAME")
-CONTAINER_NAME = os.getenv("CONTAINER_NAME")
+COSMOS_DB_URI = os.environ.get("COSMOS_DB_URI")
+COSMOS_DB_KEY = os.environ.get("COSMOS_DB_KEY")
+DATABASE_NAME = os.environ.get("DATABASE_NAME")
+CONTAINER_NAME = os.environ.get("CONTAINER_NAME")
 
 # Initialize Cosmos DB client
 client = CosmosClient(COSMOS_DB_URI, credential=COSMOS_DB_KEY)
